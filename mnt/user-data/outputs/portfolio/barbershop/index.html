@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Fade Barbershop — Concept Demo by BluePeak Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #0B0B0C;
+    --panel: #151516;
+    --line: rgba(255,255,255,0.1);
+    --gold: #C9A24B;
+    --gold-soft: #E8CE8A;
+    --white: #F3F1EC;
+    --muted: #A6A29A;
+    --ease: cubic-bezier(.22,1,.36,1);
+  }
+  *,*::before,*::after{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0; background: var(--ink); color: var(--white);
+    font-family: 'Inter', sans-serif; line-height: 1.6;
+  }
+  h1,h2,h3{ font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 1.1; margin: 0 0 .4em; letter-spacing: 0.01em; }
+  p{ color: var(--muted); margin: 0 0 1em; }
+  a{ color: inherit; text-decoration: none; }
+  img,svg{ display:block; }
+  .container{ max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+  .eyebrow{ font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .section{ padding: 100px 0; }
+  .section-alt{ background: var(--panel); }
+  .section-head{ max-width: 560px; margin: 0 0 50px; }
+  .section-head.center{ margin-left:auto; margin-right:auto; text-align:center; }
+  .btn{ display:inline-flex; align-items:center; gap:8px; padding: 14px 28px; border-radius: 2px; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight:600; transition: all .3s var(--ease); border: 1px solid var(--gold); }
+  .btn-gold{ background: var(--gold); color: #14110A; }
+  .btn-gold:hover{ background: var(--gold-soft); transform: translateY(-2px); }
+  .btn-line{ background: transparent; color: var(--white); }
+  .btn-line:hover{ border-color: var(--white); }
+
+  /* Demo banner */
+  .demo-banner{ background: var(--gold); color:#14110A; text-align:center; padding: 10px 20px; font-size: 0.82rem; font-weight:600; }
+  .demo-banner a{ text-decoration: underline; }
+
+  /* Nav */
+  header{ position: sticky; top:0; z-index: 50; background: rgba(11,11,12,0.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; padding: 20px 0; }
+  .logo{ font-family:'Cormorant Garamond', serif; font-size: 1.4rem; letter-spacing: 0.05em; }
+  .logo span{ color: var(--gold); }
+  nav ul{ list-style:none; display:flex; gap:32px; margin:0; padding:0; }
+  nav a{ font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); transition: color .2s; }
+  nav a:hover{ color: var(--gold); }
+
+  /* Hero */
+  .hero{ position: relative; padding: 130px 0 110px; text-align:center; overflow:hidden; }
+  .hero::before{ content:""; position:absolute; inset:0; background: radial-gradient(ellipse at 50% 0%, rgba(201,162,75,0.14), transparent 60%); }
+  .hero-inner{ position: relative; }
+  .hero h1{ font-size: clamp(2.6rem, 6vw, 4.6rem); margin-bottom: 20px; }
+  .hero p{ max-width: 480px; margin: 0 auto 36px; font-size: 1.05rem; }
+  .hero-actions{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+  .hero-rule{ width: 60px; height:1px; background: var(--gold); margin: 32px auto; }
+
+  /* Services */
+  .service-list{ display:grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .service-item{ background: var(--ink); padding: 36px 30px; }
+  .service-item .price{ color: var(--gold); font-family:'Cormorant Garamond',serif; font-size: 1.6rem; margin-bottom: 6px; }
+  .service-item h3{ font-size: 1.3rem; margin-bottom: 6px; }
+
+  /* About */
+  .about-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items:center; }
+  .about-panel{ aspect-ratio: 4/5; border: 1px solid var(--gold); position:relative; display:flex; align-items:center; justify-content:center; }
+  .about-panel::before{ content:""; position:absolute; inset:14px; border:1px solid rgba(201,162,75,0.4); }
+  .about-panel span{ font-family:'Cormorant Garamond',serif; font-size: 5rem; color: var(--gold); opacity:0.5; }
+
+  /* Gallery */
+  .gallery-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+  .gallery-item{ aspect-ratio: 1; background: linear-gradient(145deg, #1c1a16, #2a2419); position:relative; overflow:hidden; }
+  .gallery-item::after{ content: attr(data-label); position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color: var(--gold); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.6; }
+
+  /* Testimonials */
+  .testi-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+  .testi-card{ background: var(--panel); border:1px solid var(--line); padding: 30px; }
+  .testi-card .stars{ color: var(--gold); letter-spacing: 3px; margin-bottom: 16px; display:block; }
+  .testi-card p{ color: var(--white); font-family:'Cormorant Garamond',serif; font-size: 1.2rem; margin-bottom: 20px; }
+  .testi-card .who{ color: var(--muted); font-size: 0.85rem; }
+  .sample-tag{ display:inline-block; margin-top:6px; font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color: var(--gold); border:1px solid var(--gold); padding: 3px 9px; border-radius: 2px; }
+
+  /* Contact */
+  .contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .contact-list{ list-style:none; margin:0; padding:0; }
+  .contact-list li{ padding: 16px 0; border-bottom: 1px solid var(--line); display:flex; justify-content:space-between; color: var(--muted); }
+  .contact-list li span:last-child{ color: var(--white); }
+  .map-frame{ border:1px solid var(--line); filter: grayscale(1) invert(0.9) contrast(0.9); height: 100%; min-height: 260px; }
+  .map-frame iframe{ width:100%; height:100%; min-height:260px; border:0; display:block; }
+
+  /* FAQ */
+  .faq-item{ border-top: 1px solid var(--line); }
+  .faq-item:last-child{ border-bottom: 1px solid var(--line); }
+  .faq-trigger{ width:100%; text-align:left; background:transparent; border:none; color: var(--white); font-family:'Cormorant Garamond',serif; font-size: 1.15rem; padding: 22px 0; display:flex; justify-content:space-between; cursor:pointer; }
+  .faq-trigger span{ color: var(--gold); }
+  .faq-panel{ max-height:0; overflow:hidden; transition: max-height .3s var(--ease); }
+  .faq-panel p{ padding: 0 0 22px; max-width: 560px; }
+
+  /* Final CTA */
+  .final-cta{ text-align:center; padding: 110px 0; background: linear-gradient(180deg, var(--ink), #1a1610); }
+  .final-cta h2{ font-size: clamp(2rem, 4.5vw, 3rem); }
+
+  footer{ padding: 40px 0; border-top: 1px solid var(--line); text-align:center; color: var(--muted); font-size: 0.82rem; }
+  footer a{ color: var(--gold); }
+
+  .reveal{ opacity:0; transform: translateY(20px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+  .reveal.is-visible{ opacity:1; transform:none; }
+
+  @media (max-width: 860px){
+    nav ul{ display:none; }
+    .service-list{ grid-template-columns: 1fr; }
+    .about-grid, .contact-grid{ grid-template-columns: 1fr; }
+    .gallery-grid{ grid-template-columns: repeat(2,1fr); }
+    .testi-grid{ grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-banner">Concept demo built by BluePeak Digital — <a href="../../index.html">back to BluePeak Digital</a></div>
+
+<header>
+  <div class="container nav-inner">
+    <div class="logo">THE FADE <span>BARBERSHOP</span></div>
+    <nav><ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+    <a href="#contact" class="btn btn-gold">Book Now</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <p class="eyebrow reveal">Est. Concept · Durban, South Africa</p>
+    <h1 class="reveal">Precision cuts.<br>Old-world craft.</h1>
+    <p class="reveal">A modern barbershop for men who take their grooming as seriously as their business. Walk-ins welcome, appointments preferred.</p>
+    <div class="hero-actions reveal">
+      <a href="#contact" class="btn btn-gold">Book an Appointment</a>
+      <a href="#services" class="btn btn-line">View Services</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Services &amp; Pricing</p>
+      <h2>Every service, done properly</h2>
+    </div>
+    <div class="service-list reveal">
+      <div class="service-item">
+        <p class="price">R180</p>
+        <h3>Signature Fade</h3>
+        <p>Precision clipper work, shaped and finished with a straight-razor edge.</p>
+      </div>
+      <div class="service-item">
+        <p class="price">R120</p>
+        <h3>Beard Sculpt</h3>
+        <p>Full shape-up, line-up, and hot towel finish.</p>
+      </div>
+      <div class="service-item">
+        <p class="price">R250</p>
+        <h3>The Full Works</h3>
+        <p>Fade, beard sculpt, and a traditional hot towel shave.</p>
+      </div>
+      <div class="service-item">
+        <p class="price">R90</p>
+        <h3>Skin Fade Touch-Up</h3>
+        <p>A quick refresh between full appointments to keep the line sharp.</p>
+      </div>
+      <div class="service-item">
+        <p class="price">R150</p>
+        <h3>Hot Towel Shave</h3>
+        <p>The traditional straight-razor shave, done slow and done right.</p>
+      </div>
+      <div class="service-item">
+        <p class="price">R350</p>
+        <h3>Grooms's Package</h3>
+        <p>For the big day — cut, shave, and styling for you and your party.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="about">
+  <div class="container about-grid">
+    <div class="reveal">
+      <p class="eyebrow">Our Story</p>
+      <h2>Built on craft, not shortcuts</h2>
+      <p>The Fade Barbershop started with one chair and a simple idea: a haircut should be an experience, not an errand. Every barber on our floor trains for months before they touch a paying client, and every tool gets cleaned between every cut.</p>
+      <p>We keep the shop small on purpose — fewer chairs, more attention, and a standard we don't compromise on.</p>
+      <a href="#contact" class="btn btn-line">Meet the Team</a>
+    </div>
+    <div class="about-panel reveal"><span>TFB</span></div>
+  </div>
+</section>
+
+<section class="section" id="gallery">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Gallery</p>
+      <h2>The shop &amp; the work</h2>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item" data-label="The Chair"></div>
+      <div class="gallery-item" data-label="Fresh Fade"></div>
+      <div class="gallery-item" data-label="Hot Towel"></div>
+      <div class="gallery-item" data-label="The Shop Floor"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">What Clients Say</p>
+      <h2>Sample reviews for this concept</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <span class="stars">★★★★★</span>
+        <p>"Best fade I've had in this city, full stop. Booked in again before I'd even left the chair."</p>
+        <div class="who">Thabo M.</div>
+        <span class="sample-tag">Sample review</span>
+      </div>
+      <div class="testi-card reveal">
+        <span class="stars">★★★★★</span>
+        <p>"The hot towel shave alone is worth the trip. Proper old-school barbering."</p>
+        <div class="who">Ryan P.</div>
+        <span class="sample-tag">Sample review</span>
+      </div>
+      <div class="testi-card reveal">
+        <span class="stars">★★★★★</span>
+        <p>"Booked my whole groomsmen party here. Every single guy walked out looking sharp."</p>
+        <div class="who">Sipho K.</div>
+        <span class="sample-tag">Sample review</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Visit Us</p>
+      <h2>Book your chair</h2>
+    </div>
+    <div class="contact-grid">
+      <ul class="contact-list reveal">
+        <li><span>Location</span><span>Durban, South Africa</span></li>
+        <li><span>Hours</span><span>Tue–Sat, 9am–6pm</span></li>
+        <li><span>Phone</span><span>+27 00 000 0000</span></li>
+        <li><span>Booking</span><span>WhatsApp or walk-in</span></li>
+      </ul>
+      <div class="map-frame reveal">
+        <iframe src="https://www.google.com/maps?q=Durban,South+Africa&output=embed" loading="lazy" title="Map placeholder — Durban, South Africa"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container" style="max-width:720px;">
+    <div class="section-head center reveal">
+      <p class="eyebrow">FAQ</p>
+      <h2>Good to know</h2>
+    </div>
+    <div class="reveal">
+      <div class="faq-item">
+        <button class="faq-trigger">Do I need to book ahead? <span>+</span></button>
+        <div class="faq-panel"><p>Walk-ins are welcome, but booking ahead guarantees your preferred barber and time slot.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger">Do you take card payments? <span>+</span></button>
+        <div class="faq-panel"><p>Yes — card, EFT, and cash are all accepted.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-trigger">How long does a full service take? <span>+</span></button>
+        <div class="faq-panel"><p>A standard fade takes around 30 minutes; the Full Works package runs closer to an hour.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container reveal">
+    <h2>Ready for a fresh cut?</h2>
+    <p style="max-width:420px;margin:0 auto 30px;">Book your chair today — walk-ins welcome, appointments preferred.</p>
+    <a href="#contact" class="btn btn-gold">Book Now</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>This is a concept demo built by <a href="../../index.html">BluePeak Digital</a> to showcase web design work — not a real business.</p>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  document.querySelectorAll('.faq-trigger').forEach(btn => {
+    const panel = btn.nextElementSibling;
+    btn.addEventListener('click', () => {
+      const open = panel.style.maxHeight;
+      document.querySelectorAll('.faq-panel').forEach(p => p.style.maxHeight = null);
+      if (!open) panel.style.maxHeight = panel.scrollHeight + 'px';
+    });
+  });
+});
+</script>
+</body>
+</html>

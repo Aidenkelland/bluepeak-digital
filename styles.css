@@ -423,6 +423,21 @@ html[data-theme="light"] .icon-sun{ opacity: 1; transform: rotate(0deg); }
 }
 @keyframes scroll-left{ from{ transform: translateX(0); } to{ transform: translateX(-50%); } }
 
+.statement-band{
+  padding: 70px 0;
+  border-bottom: 1px solid var(--border);
+}
+.statement-text{
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text);
+}
+
 /* ---------- 8. Cards: services / portfolio / process / pricing / testimonials ---------- */
 .card{
   background: var(--surface);
@@ -468,9 +483,11 @@ html[data-theme="light"] .icon-sun{ opacity: 1; transform: rotate(0deg); }
 .portfolio-card.is-hidden{ display: none; }
 .portfolio-card:hover{ transform: translateY(-6px); box-shadow: var(--shadow); }
 .portfolio-media{
+  display: block;
   position: relative;
   aspect-ratio: 4/3;
   overflow: hidden;
+  cursor: pointer;
 }
 .portfolio-card:hover .site-mockup-body{ background-position: 100% 100%; }
 .portfolio-media--1{ --mockup-grad: linear-gradient(135deg,#1E3A8A,#2F6FED,#6DD3FF); }
@@ -545,6 +562,19 @@ html[data-theme="light"] .icon-sun{ opacity: 1; transform: rotate(0deg); }
 }
 .portfolio-info h3{ font-size: 1.05rem; margin-bottom: 2px; }
 .portfolio-info p{ font-size: 0.88rem; margin: 0; }
+.portfolio-link{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: -8px 24px 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--primary-2);
+  transition: gap .2s var(--ease);
+}
+.portfolio-link:hover{ gap: 9px; }
 .tag{
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -671,6 +701,31 @@ html[data-theme="light"] .icon-sun{ opacity: 1; transform: rotate(0deg); }
 }
 .testimonial-card p{ font-size: 1.02rem; color: var(--text); margin-bottom: 24px; }
 .testimonial-card footer{ display: flex; align-items: center; gap: 12px; }
+
+.featured-testimonial{
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 48px;
+  padding: 0;
+}
+.featured-testimonial .stars{ color: #FFB020; letter-spacing: 4px; font-size: 1.1rem; display: block; margin-bottom: 16px; }
+.featured-testimonial p{
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+  font-weight: 500;
+  color: var(--text);
+  margin: 0 0 16px;
+}
+.featured-testimonial .sample-badge{
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 5px 14px;
+  border-radius: 999px;
+}
 .avatar{
   width: 40px; height: 40px;
   border-radius: 50%;
@@ -733,6 +788,30 @@ html[data-theme="light"] .cta-section{ background-image: linear-gradient(160deg,
 .cta-inner{ position: relative; text-align: center; max-width: 640px; }
 .cta-title{ font-size: clamp(2rem, 4.4vw, 2.8rem); color: #fff; }
 .cta-sub{ color: #B7C4DA; font-size: 1.05rem; }
+
+.cta-quick-actions{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+.btn-whatsapp{
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  background: #25D366;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.94rem;
+  transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+  box-shadow: 0 10px 26px rgba(37,211,102,0.32);
+}
+.btn-whatsapp:hover{ transform: translateY(-2px); box-shadow: 0 14px 32px rgba(37,211,102,0.42); }
+.cta-quick-or{ font-size: 0.86rem; color: #9AAAC4; }
 
 .cta-form{ margin-top: 36px; }
 .form-row{ display: flex; gap: 12px; margin-bottom: 12px; }

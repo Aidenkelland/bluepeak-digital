@@ -156,9 +156,16 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Wire this up to your form backend / API of choice.
+    // This form doesn't send real emails yet — it's front-end only.
+    // To make it actually deliver enquiries to your inbox, pick one:
+    //   1. Formspree (formspree.io) — change the <form> action to your
+    //      Formspree endpoint and remove e.preventDefault() above.
+    //   2. EmailJS (emailjs.com) — call emailjs.send(...) here with your
+    //      service ID, template ID, and public key.
+    //   3. Your own backend — POST the form data with fetch() to your
+    //      API endpoint instead of just showing a success message below.
     formNote.classList.remove('is-error');
-    formNote.textContent = `Thanks, ${name.split(' ')[0]} — we'll be in touch within one business day.`;
+    formNote.textContent = `Thanks, ${name.split(' ')[0]} — we'll be in touch within 24 hours.`;
     ctaForm.reset();
   });
 

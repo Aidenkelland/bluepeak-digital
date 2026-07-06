@@ -555,6 +555,12 @@ html[data-theme="light"] .icon-sun{ opacity: 1; transform: rotate(0deg); }
   white-space: nowrap;
 }
 
+.process-layout{
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: start;
+}
 .process-list{ display: flex; flex-direction: column; }
 .process-step{
   display: grid;
@@ -578,6 +584,29 @@ html[data-theme="light"] .icon-sun{ opacity: 1; transform: rotate(0deg); }
 }
 .process-content h3{ font-size: 1.2rem; }
 .process-content p{ margin: 0; max-width: 560px; }
+
+.process-photo{
+  position: sticky;
+  top: 110px;
+  margin: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.process-photo img{
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.9);
+}
+.process-photo figcaption{
+  padding: 16px 20px;
+  background: var(--surface);
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
 
 .pricing-card{
   background: var(--surface);
@@ -688,11 +717,13 @@ html[data-theme="light"] .icon-sun{ opacity: 1; transform: rotate(0deg); }
 .cta-section{
   position: relative;
   padding: 110px 0;
-  background: linear-gradient(160deg, #0B1424, #12233F 45%, #0A0E14);
+  background-image: linear-gradient(160deg, rgba(11,20,36,0.93), rgba(18,35,63,0.90) 45%, rgba(10,14,20,0.94)), url("assets/hero-abstract.jpg");
+  background-size: cover;
+  background-position: center;
   color: #fff;
   overflow: hidden;
 }
-html[data-theme="light"] .cta-section{ background: linear-gradient(160deg, #0E1A33, #17335C 45%, #0A1424); }
+html[data-theme="light"] .cta-section{ background-image: linear-gradient(160deg, rgba(14,26,51,0.93), rgba(23,51,92,0.90) 45%, rgba(10,20,36,0.94)), url("assets/hero-abstract.jpg"); }
 .cta-section::before{
   content: "";
   position: absolute;
@@ -816,6 +847,8 @@ a.contact-method:hover{ color: #fff; }
   .grid-3{ grid-template-columns: repeat(2, 1fr); }
   .stats-strip{ grid-template-columns: repeat(2, 1fr); row-gap: 32px; }
   .footer-inner{ gap: 40px; }
+  .process-layout{ grid-template-columns: 1fr; }
+  .process-photo{ position: static; order: -1; }
 }
 
 @media (max-width: 760px){

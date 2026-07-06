@@ -273,6 +273,15 @@ html[data-theme="light"] .icon-sun{ opacity: 1; transform: rotate(0deg); }
   background: radial-gradient(circle, var(--glow), transparent 70%);
   pointer-events: none;
 }
+.hero::after{
+  content: "";
+  position: absolute;
+  bottom: -240px; left: -180px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, var(--glow), transparent 72%);
+  opacity: 0.6;
+  pointer-events: none;
+}
 
 .hero-inner{
   display: grid;
@@ -459,17 +468,75 @@ html[data-theme="light"] .icon-sun{ opacity: 1; transform: rotate(0deg); }
 .portfolio-card.is-hidden{ display: none; }
 .portfolio-card:hover{ transform: translateY(-6px); box-shadow: var(--shadow); }
 .portfolio-media{
+  position: relative;
   aspect-ratio: 4/3;
+  overflow: hidden;
+}
+.portfolio-card:hover .site-mockup-body{ background-position: 100% 100%; }
+.portfolio-media--1{ --mockup-grad: linear-gradient(135deg,#1E3A8A,#2F6FED,#6DD3FF); }
+.portfolio-media--2{ --mockup-grad: linear-gradient(135deg,#0F2A43,#0E9FBF,#6DD3FF); }
+.portfolio-media--3{ --mockup-grad: linear-gradient(135deg,#1B1F2B,#3D4A66,#8FA8D6); }
+.portfolio-media--4{ --mockup-grad: linear-gradient(135deg,#12233F,#2F6FED,#7EC8E3); }
+.portfolio-media--5{ --mockup-grad: linear-gradient(135deg,#22293A,#4B5B7C,#9FB6E0); }
+.portfolio-media--6{ --mockup-grad: linear-gradient(135deg,#0B1E33,#1E4FA6,#6DD3FF); }
+
+/* Faux website preview shown inside each portfolio card — built from shapes,
+   not photos, so there's nothing to license and every "project" is honestly
+   a concept mockup rather than a real screenshot. */
+.site-mockup{
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #0B0F16;
+}
+.site-mockup-bar{
+  display: flex;
+  gap: 5px;
+  padding: 8px 12px;
+  background: rgba(0,0,0,0.35);
+  flex-shrink: 0;
+}
+.site-dot{ width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.35); }
+.site-mockup-body{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 18px 20px;
+  background-image: var(--mockup-grad);
   background-size: 200% 200%;
   transition: background-position .6s var(--ease);
 }
-.portfolio-card:hover .portfolio-media{ background-position: 100% 100%; }
-.portfolio-media--1{ background-image: linear-gradient(135deg,#1E3A8A,#2F6FED,#6DD3FF); }
-.portfolio-media--2{ background-image: linear-gradient(135deg,#0F2A43,#0E9FBF,#6DD3FF); }
-.portfolio-media--3{ background-image: linear-gradient(135deg,#1B1F2B,#3D4A66,#8FA8D6); }
-.portfolio-media--4{ background-image: linear-gradient(135deg,#12233F,#2F6FED,#7EC8E3); }
-.portfolio-media--5{ background-image: linear-gradient(135deg,#22293A,#4B5B7C,#9FB6E0); }
-.portfolio-media--6{ background-image: linear-gradient(135deg,#0B1E33,#1E4FA6,#6DD3FF); }
+.site-mockup-nav{ display: flex; align-items: center; gap: 8px; }
+.site-mockup-logo{ width: 14px; height: 14px; border-radius: 4px; background: rgba(255,255,255,0.9); }
+.site-mockup-link{ width: 22px; height: 5px; border-radius: 3px; background: rgba(255,255,255,0.45); }
+.site-mockup-cta{ margin-left: auto; width: 40px; height: 13px; border-radius: 999px; background: #fff; }
+.site-mockup-hero{ display: flex; flex-direction: column; gap: 8px; margin: auto 0; }
+.site-mockup-headline{ width: 68%; height: 13px; border-radius: 4px; background: rgba(255,255,255,0.95); }
+.site-mockup-subline{ width: 46%; height: 7px; border-radius: 4px; background: rgba(255,255,255,0.55); }
+.site-mockup-button{ width: 76px; height: 18px; border-radius: 999px; background: #fff; margin-top: 6px; }
+.site-mockup-grid{ display: flex; gap: 8px; }
+.site-mockup-grid span{ flex: 1; aspect-ratio: 1; border-radius: 6px; background: rgba(255,255,255,0.22); }
+.site-mockup-grid--menu{ flex-direction: column; }
+.site-mockup-grid--menu span{ aspect-ratio: auto; height: 8px; flex: none; border-radius: 3px; }
+.site-mockup-grid--list span{ aspect-ratio: auto; height: 10px; flex: none; border-radius: 3px; width: 100%; }
+
+.mockup-hover-label{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5,8,14,0.55);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transition: opacity .3s var(--ease);
+  pointer-events: none;
+}
+.portfolio-card:hover .mockup-hover-label{ opacity: 1; }
 
 .portfolio-info{
   display: flex; align-items: center; justify-content: space-between;
@@ -684,6 +751,8 @@ a.contact-method:hover{ color: #fff; }
 .footer-col a{ display: block; font-size: 0.92rem; color: var(--text-muted); margin-bottom: 12px; transition: color .2s var(--ease); }
 .footer-col a:hover{ color: var(--primary-2); }
 .footer-note{ display: block; font-size: 0.86rem; color: var(--text-muted); }
+.social-link{ display: flex !important; align-items: center; gap: 9px; }
+.social-link svg{ flex-shrink: 0; }
 
 .footer-bottom{
   display: flex; justify-content: space-between;

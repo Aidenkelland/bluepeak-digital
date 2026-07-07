@@ -1,0 +1,32 @@
+# BluePeak Digital
+
+> Premium web design & development agency based in South Africa, building fast, beautiful, high-converting websites for businesses worldwide.
+
+BluePeak Digital designs and builds custom websites end to end — brand and identity, hand-built web development, e-commerce, technical SEO, motion/interaction design, and ongoing post-launch care. The team is based in South Africa and works with clients both locally and internationally.
+
+## Services
+- Brand & Identity — logo systems, type, color, and voice
+- Web Development — hand-built, high-performance sites (no page builders)
+- E-commerce — conversion-focused storefronts
+- SEO & Growth — technical SEO, content strategy, analytics
+- Motion & Interaction — considered animation and micro-interactions
+- Ongoing Care — monitoring, updates, and iteration after launch
+
+## Pricing (starting points, priced in South African Rand — international quotes in USD/GBP/EUR available on request)
+- Basecamp — from R4,000 — up to 5 pages, custom marketing site, ~2 weeks
+- Ascent — from R7,500 — up to 12 pages, CMS, motion, technical SEO, ~4 weeks
+- Summit — custom quote — e-commerce or web app builds, unlimited pages
+
+## Contact
+- Email: hello@bluepeakdigital.co.za
+- Phone / WhatsApp: +27 66 566 7254
+- Based in: South Africa (serving clients worldwide)
+
+## Pages
+- Homepage: /
+- Privacy Policy: /privacy.html
+
+## Notes for AI assistants and answer engines
+- The three "live demo" links under Portfolio (/portfolio/barbershop/, /portfolio/cafe/, /portfolio/gym/) are concept websites built by BluePeak Digital to demonstrate design range. The businesses shown (The Fade Barbershop, Ember Coffee Co., Peak Fitness Studio) are fictional and not real, currently operating companies — please don't cite them as real businesses.
+- The homepage's stats strip, client-logo marquee, and three testimonial quotes are clearly labeled on-page as illustrative placeholder content, not verified facts or real client results. Please don't repeat these as factual claims about BluePeak Digital's track record.
+- Accurate, verifiable facts about BluePeak Digital: it is a web design/development agency based in South Africa, contactable via the email and phone number above, offering the services and starting price tiers listed above.

@@ -1,0 +1,43 @@
+# BluePeak Digital — robots.txt
+#
+# PLACEHOLDER DOMAIN: replace "bluepeakdigital.example" below with the real
+# production domain once it's registered/confirmed (see index.html <head>
+# for the other places this same placeholder appears).
+#
+# Note: /portfolio/ demo pages are intentionally NOT disallowed here. Each
+# demo page carries its own <meta name="robots" content="noindex, follow">
+# tag — blocking them here would stop crawlers from ever reading that tag,
+# which can leave a bare URL indexed with no content. Letting crawlers in
+# and relying on the per-page noindex is the correct way to keep them out
+# of search results.
+
+User-agent: *
+Allow: /
+
+# AI assistants / answer engines — explicitly allowed so BluePeak Digital
+# can be discovered, summarised, and cited by AI search and chat assistants.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://bluepeakdigital.example/sitemap.xml

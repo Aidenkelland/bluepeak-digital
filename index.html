@@ -674,7 +674,15 @@
         <span class="cta-quick-or">or fill in your details below</span>
       </div>
 
-      <form class="cta-form reveal" id="ctaForm">
+      <!--
+        FORM SETUP — action required before launch:
+        1. Create a free account at https://formspree.io and add a new form.
+        2. Copy the form endpoint it gives you (looks like https://formspree.io/f/abcd1234).
+        3. Replace YOUR_FORM_ID in the action="" attribute below with that ID.
+        Until step 3 is done, the form will show a friendly error pointing visitors
+        to email/WhatsApp instead — it will not silently lose enquiries.
+      -->
+      <form class="cta-form reveal" id="ctaForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <div class="form-row">
           <label class="visually-hidden" for="ctaName">Name</label>
           <input type="text" id="ctaName" name="name" placeholder="Your name" required>
@@ -686,6 +694,8 @@
           <input type="text" id="ctaCompany" name="company" placeholder="Company name" required>
           <button type="submit" class="btn btn-primary">Get my free quote</button>
         </div>
+        <!-- Honeypot: hidden from real visitors, bots tend to fill every field -->
+        <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
         <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
       </form>
 

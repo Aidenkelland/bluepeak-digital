@@ -8,7 +8,7 @@
    5. Animated stat counters
    6. Portfolio filtering
    7. FAQ accordion
-   8. Contact form (front-end only)
+   8. Contact form (Formspree)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -140,15 +140,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ---------- 8. Contact form (front-end only) ---------- */
+  /* ---------- 8. Contact form (Formspree) ---------- */
   const ctaForm = document.getElementById('ctaForm');
   const formNote = document.getElementById('formNote');
+  const formSubmitBtn = ctaForm.querySelector('button[type="submit"]');
+  const submitBtnDefaultText = formSubmitBtn.textContent;
 
-  ctaForm.addEventListener('submit', (e) => {
+  ctaForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const name = document.getElementById('ctaName').value.trim();
     const email = document.getElementById('ctaEmail').value.trim();
+    const honeypot = ctaForm.querySelector('[name="_gotcha"]').value;
+
+    formNote.classList.remove('is-error');
 
     if (!name || !email) {
       formNote.textContent = 'Please fill in your name and email.';
@@ -156,17 +161,37 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // This form doesn't send real emails yet — it's front-end only.
-    // To make it actually deliver enquiries to your inbox, pick one:
-    //   1. Formspree (formspree.io) — change the <form> action to your
-    //      Formspree endpoint and remove e.preventDefault() above.
-    //   2. EmailJS (emailjs.com) — call emailjs.send(...) here with your
-    //      service ID, template ID, and public key.
-    //   3. Your own backend — POST the form data with fetch() to your
-    //      API endpoint instead of just showing a success message below.
-    formNote.classList.remove('is-error');
-    formNote.textContent = `Thanks, ${name.split(' ')[0]} — we'll be in touch within 24 hours.`;
-    ctaForm.reset();
+    // Honeypot tripped — a real visitor never fills this field. Pretend
+    // success without actually submitting, so bots don't learn it failed.
+    if (honeypot) {
+      formNote.textContent = `Thanks, ${name.split(' ')[0]} — we'll be in touch within 24 hours.`;
+      ctaForm.reset();
+      return;
+    }
+
+    formSubmitBtn.disabled = true;
+    formSubmitBtn.textContent = 'Sending...';
+    formNote.textContent = '';
+
+    try {
+      const response = await fetch(ctaForm.action, {
+        method: 'POST',
+        body: new FormData(ctaForm),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (!response.ok) throw new Error('Form submission failed');
+
+      formNote.classList.remove('is-error');
+      formNote.textContent = `Thanks, ${name.split(' ')[0]} — we'll be in touch within 24 hours.`;
+      ctaForm.reset();
+    } catch (err) {
+      formNote.classList.add('is-error');
+      formNote.textContent = 'Something went wrong sending that — please email hello@bluepeakdigital.co.za or WhatsApp us instead.';
+    } finally {
+      formSubmitBtn.disabled = false;
+      formSubmitBtn.textContent = submitBtnDefaultText;
+    }
   });
 
   /* Footer year */

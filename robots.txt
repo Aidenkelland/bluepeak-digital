@@ -1,8 +1,8 @@
 # BluePeak Digital — robots.txt
 #
-# PLACEHOLDER DOMAIN: replace "bluepeakdigital.example" below with the real
-# production domain once it's registered/confirmed (see index.html <head>
-# for the other places this same placeholder appears).
+# INTERIM PRODUCTION DOMAIN: this points at the free Vercel subdomain
+# (bluepeak-digital-two.vercel.app). Once a custom domain is registered,
+# replace it below (see index.html <head> for the other places it appears).
 #
 # Note: /portfolio/ demo pages are intentionally NOT disallowed here. Each
 # demo page carries its own <meta name="robots" content="noindex, follow">
@@ -40,4 +40,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://bluepeakdigital.example/sitemap.xml
+Sitemap: https://bluepeak-digital-two.vercel.app/sitemap.xml

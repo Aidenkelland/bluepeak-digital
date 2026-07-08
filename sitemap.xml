@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- PLACEHOLDER DOMAIN: replace "bluepeakdigital.example" below once the real production domain is registered/confirmed. -->
+<!-- INTERIM PRODUCTION DOMAIN: points at the free Vercel subdomain (bluepeak-digital-two.vercel.app). Replace once a custom domain is registered. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://bluepeakdigital.example/</loc>
+    <loc>https://bluepeak-digital-two.vercel.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://bluepeakdigital.example/privacy.html</loc>
+    <loc>https://bluepeak-digital-two.vercel.app/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

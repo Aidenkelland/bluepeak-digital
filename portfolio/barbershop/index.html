@@ -6,7 +6,10 @@
 <title>The Fade Barbershop — Concept Demo by BluePeak Digital</title>
 <meta name="robots" content="noindex, follow">
 <meta name="description" content="A concept demo website built by BluePeak Digital to showcase web design work — not a real business.">
+<meta name="theme-color" content="#0B0B0C">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -21,10 +24,16 @@
   }
   *,*::before,*::after{ box-sizing: border-box; }
   html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *,*::before,*::after{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
   body{
     margin:0; background: var(--ink); color: var(--white);
     font-family: 'Inter', sans-serif; line-height: 1.6;
   }
+  section[id]{ scroll-margin-top: 88px; }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
   h1,h2,h3{ font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 1.1; margin: 0 0 .4em; letter-spacing: 0.01em; }
   p{ color: var(--muted); margin: 0 0 1em; }
   a{ color: inherit; text-decoration: none; }
@@ -54,6 +63,16 @@
   nav a{ font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); transition: color .2s; }
   nav a:hover{ color: var(--gold); }
 
+  .nav-toggle{ display:none; width:36px; height:36px; padding:0; background:transparent; border:none; cursor:pointer; flex-direction:column; align-items:center; justify-content:center; gap:6px; }
+  .nav-toggle span{ display:block; width:22px; height:2px; background: var(--white); transition: transform .25s var(--ease), opacity .25s var(--ease); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){ transform: translateY(8px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){ transform: translateY(-8px) rotate(-45deg); }
+
+  .back-to-top{ position:fixed; right:20px; bottom:20px; width:44px; height:44px; border-radius:50%; background: var(--panel); border:1px solid var(--gold); color: var(--gold); display:flex; align-items:center; justify-content:center; cursor:pointer; opacity:0; visibility:hidden; transform: translateY(10px); transition: all .3s var(--ease); z-index:60; }
+  .back-to-top.is-visible{ opacity:1; visibility:visible; transform:none; }
+  .back-to-top:hover{ background: var(--gold); color:#14110A; }
+
   /* Hero */
   .hero{ position: relative; padding: 130px 0 110px; text-align:center; overflow:hidden; }
   .hero::before{ content:""; position:absolute; inset:0; background: radial-gradient(ellipse at 50% 0%, rgba(201,162,75,0.14), transparent 60%); }
@@ -65,7 +84,8 @@
 
   /* Services */
   .service-list{ display:grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-  .service-item{ background: var(--ink); padding: 36px 30px; }
+  .service-item{ background: var(--ink); padding: 36px 30px; transition: background .3s var(--ease), transform .3s var(--ease); position: relative; z-index: 1; }
+  .service-item:hover{ background: var(--panel); transform: translateY(-4px); }
   .service-item .price{ color: var(--gold); font-family:'Cormorant Garamond',serif; font-size: 1.6rem; margin-bottom: 6px; }
   .service-item h3{ font-size: 1.3rem; margin-bottom: 6px; }
 
@@ -77,12 +97,15 @@
 
   /* Gallery */
   .gallery-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
-  .gallery-item{ aspect-ratio: 1; background: linear-gradient(145deg, #1c1a16, #2a2419); position:relative; overflow:hidden; }
-  .gallery-item::after{ content: attr(data-label); position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color: var(--gold); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.6; }
+  .gallery-item{ aspect-ratio: 1; background: linear-gradient(145deg, #1c1a16, #2a2419); position:relative; overflow:hidden; transition: transform .4s var(--ease); }
+  .gallery-item:hover{ transform: scale(1.03); }
+  .gallery-label{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; color: var(--gold); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.6; transition: opacity .3s var(--ease); }
+  .gallery-item:hover .gallery-label{ opacity:1; }
 
   /* Testimonials */
   .testi-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
-  .testi-card{ background: var(--panel); border:1px solid var(--line); padding: 30px; }
+  .testi-card{ background: var(--panel); border:1px solid var(--line); padding: 30px; transition: transform .3s var(--ease), border-color .3s var(--ease); }
+  .testi-card:hover{ transform: translateY(-4px); border-color: var(--gold); }
   .testi-card .stars{ color: var(--gold); letter-spacing: 3px; margin-bottom: 16px; display:block; }
   .testi-card p{ color: var(--white); font-family:'Cormorant Garamond',serif; font-size: 1.2rem; margin-bottom: 20px; }
   .testi-card .who{ color: var(--muted); font-size: 0.85rem; }
@@ -115,11 +138,24 @@
   .reveal.is-visible{ opacity:1; transform:none; }
 
   @media (max-width: 860px){
-    nav ul{ display:none; }
+    nav ul{
+      display:none; position:absolute; top:100%; left:0; right:0;
+      flex-direction:column; gap:0; background: var(--ink);
+      border-bottom:1px solid var(--line); padding: 8px 28px 20px;
+    }
+    header.nav-open nav ul{ display:flex; }
+    nav ul li{ padding: 12px 0; border-top: 1px solid var(--line); }
+    .nav-toggle{ display:flex; }
+    .nav-inner .btn-gold{ padding: 10px 16px; font-size: 0.75rem; }
     .service-list{ grid-template-columns: 1fr; }
     .about-grid, .contact-grid{ grid-template-columns: 1fr; }
     .gallery-grid{ grid-template-columns: repeat(2,1fr); }
     .testi-grid{ grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 420px){
+    .logo{ font-size: 1.1rem; }
+    .nav-inner .btn-gold{ display:none; }
   }
 </style>
 </head>
@@ -127,7 +163,7 @@
 
 <div class="demo-banner">Concept demo built by BluePeak Digital — <a href="../../index.html">back to BluePeak Digital</a></div>
 
-<header>
+<header id="siteHeader">
   <div class="container nav-inner">
     <div class="logo">THE FADE <span>BARBERSHOP</span></div>
     <nav><ul>
@@ -137,6 +173,9 @@
       <li><a href="#contact">Contact</a></li>
     </ul></nav>
     <a href="#contact" class="btn btn-gold">Book Now</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
@@ -213,10 +252,10 @@
       <h2>The shop &amp; the work</h2>
     </div>
     <div class="gallery-grid reveal">
-      <div class="gallery-item" data-label="The Chair"></div>
-      <div class="gallery-item" data-label="Fresh Fade"></div>
-      <div class="gallery-item" data-label="Hot Towel"></div>
-      <div class="gallery-item" data-label="The Shop Floor"></div>
+      <div class="gallery-item"><span class="gallery-label">The Chair</span></div>
+      <div class="gallery-item"><span class="gallery-label">Fresh Fade</span></div>
+      <div class="gallery-item"><span class="gallery-label">Hot Towel</span></div>
+      <div class="gallery-item"><span class="gallery-label">The Shop Floor</span></div>
     </div>
   </div>
 </section>
@@ -278,16 +317,16 @@
     </div>
     <div class="reveal">
       <div class="faq-item">
-        <button class="faq-trigger">Do I need to book ahead? <span>+</span></button>
-        <div class="faq-panel"><p>Walk-ins are welcome, but booking ahead guarantees your preferred barber and time slot.</p></div>
+        <button class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-1" id="faq-trigger-1">Do I need to book ahead? <span>+</span></button>
+        <div class="faq-panel" id="faq-panel-1" role="region" aria-labelledby="faq-trigger-1"><p>Walk-ins are welcome, but booking ahead guarantees your preferred barber and time slot.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-trigger">Do you take card payments? <span>+</span></button>
-        <div class="faq-panel"><p>Yes — card, EFT, and cash are all accepted.</p></div>
+        <button class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-2" id="faq-trigger-2">Do you take card payments? <span>+</span></button>
+        <div class="faq-panel" id="faq-panel-2" role="region" aria-labelledby="faq-trigger-2"><p>Yes — card, EFT, and cash are all accepted.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-trigger">How long does a full service take? <span>+</span></button>
-        <div class="faq-panel"><p>A standard fade takes around 30 minutes; the Full Works package runs closer to an hour.</p></div>
+        <button class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-3" id="faq-trigger-3">How long does a full service take? <span>+</span></button>
+        <div class="faq-panel" id="faq-panel-3" role="region" aria-labelledby="faq-trigger-3"><p>A standard fade takes around 30 minutes; the Full Works package runs closer to an hour.</p></div>
       </div>
     </div>
   </div>
@@ -307,6 +346,10 @@
   </div>
 </footer>
 
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 12V4M4 8l4-4 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const revealEls = document.querySelectorAll('.reveal');
@@ -318,11 +361,34 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.faq-trigger').forEach(btn => {
     const panel = btn.nextElementSibling;
     btn.addEventListener('click', () => {
-      const open = panel.style.maxHeight;
-      document.querySelectorAll('.faq-panel').forEach(p => p.style.maxHeight = null);
-      if (!open) panel.style.maxHeight = panel.scrollHeight + 'px';
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('.faq-trigger').forEach(t => {
+        t.setAttribute('aria-expanded', 'false');
+        t.nextElementSibling.style.maxHeight = null;
+      });
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      if (!isOpen) panel.style.maxHeight = panel.scrollHeight + 'px';
     });
   });
+
+  const header = document.getElementById('siteHeader');
+  const navToggle = document.getElementById('navToggle');
+  navToggle.addEventListener('click', () => {
+    const isOpen = header.classList.toggle('nav-open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+  header.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      header.classList.remove('nav-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  const backToTop = document.getElementById('backToTop');
+  document.addEventListener('scroll', () => {
+    backToTop.classList.toggle('is-visible', window.scrollY > 600);
+  }, { passive: true });
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 });
 </script>
 </body>

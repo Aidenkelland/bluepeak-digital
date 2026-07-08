@@ -747,7 +747,31 @@ html[data-theme="light"] .icon-sun{ opacity: 1; transform: rotate(0deg); }
 }
 .pricing-card h3{ font-size: 1.3rem; }
 .pricing-desc{ font-size: 0.92rem; min-height: 44px; }
+.pricing-ideal-for{ font-size: 0.88rem; min-height: 42px; margin: -4px 0 22px; }
 .pricing-amount{ font-family: var(--font-display); font-size: 2.2rem; font-weight: 600; color: var(--text); margin-bottom: 24px; }
+
+.pricing-price-group{ margin-bottom: 28px; }
+.pricing-price-label{
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 6px;
+}
+.pricing-price-block .pricing-amount{ font-size: 1.85rem; margin-bottom: 0; }
+.pricing-price-divider{ height: 1px; background: var(--border); margin: 16px 0; }
+.pricing-price-block--monthly .pricing-price-label{ color: var(--primary-2); }
+.pricing-amount--monthly{ font-size: 1.5rem; }
+.pricing-amount--monthly span{ font-size: 0.92rem; font-weight: 500; color: var(--text-muted); font-family: var(--font-body); }
+
+.pricing-features-lead{
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
+  color: var(--primary-2);
+  margin: 0 0 14px;
+}
 .pricing-features{ margin: 0 0 32px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
 .pricing-features li{
   font-size: 0.92rem;
@@ -770,6 +794,52 @@ html[data-theme="light"] .icon-sun{ opacity: 1; transform: rotate(0deg); }
   max-width: 560px;
   margin: 40px auto 0;
 }
+
+/* ---------- Pricing comparison table ---------- */
+.comparison-heading{ text-align: center; margin: 72px 0 28px; }
+.comparison-heading h3{ font-size: 1.4rem; margin-bottom: 8px; }
+.comparison-heading p{ margin: 0; }
+
+.table-scroll{
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.comparison-table{
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  background: var(--surface);
+}
+.comparison-table th, .comparison-table td{
+  padding: 15px 20px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.comparison-table tr:last-child th, .comparison-table tr:last-child td{ border-bottom: none; }
+.comparison-table th{
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text);
+  background: var(--surface-2);
+}
+.comparison-table th:first-child, .comparison-table td:first-child{
+  text-align: left;
+  white-space: normal;
+  color: var(--text);
+  font-weight: 500;
+}
+.comparison-table th:nth-child(3), .comparison-table td:nth-child(3){
+  background: color-mix(in srgb, var(--primary-2) 8%, transparent);
+}
+.comparison-table .cell-yes{ color: var(--primary-2); font-weight: 700; }
+.comparison-table .cell-no{ color: var(--text-muted); opacity: 0.5; }
 
 .testimonial-card{
   background: var(--surface);

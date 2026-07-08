@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ctaForm.reset();
     } catch (err) {
       formNote.classList.add('is-error');
-      formNote.textContent = 'Something went wrong sending that — please email 1Aidenjasonkelland@gmail.com or WhatsApp us instead.';
+      formNote.textContent = 'Something went wrong sending that — please email aidenjasonkelland@gmail.com or WhatsApp us instead.';
     } finally {
       formSubmitBtn.disabled = false;
       formSubmitBtn.textContent = submitBtnDefaultText;

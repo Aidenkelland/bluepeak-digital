@@ -1,9 +1,5 @@
 # BluePeak Digital — robots.txt
 #
-# INTERIM PRODUCTION DOMAIN: this points at the free Vercel subdomain
-# (bluepeak-digital-two.vercel.app). Once a custom domain is registered,
-# replace it below (see index.html <head> for the other places it appears).
-#
 # Note: /portfolio/ demo pages are intentionally NOT disallowed here. Each
 # demo page carries its own <meta name="robots" content="noindex, follow">
 # tag — blocking them here would stop crawlers from ever reading that tag,
@@ -40,4 +36,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://bluepeak-digital-two.vercel.app/sitemap.xml
+Sitemap: https://bluepeakdigitalhq.com/sitemap.xml

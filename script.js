@@ -32,16 +32,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.getElementById('siteHeader');
   const navToggle = document.getElementById('navToggle');
 
+  const closeNav = () => {
+    header.classList.remove('nav-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  };
+
   navToggle.addEventListener('click', () => {
     const isOpen = header.classList.toggle('nav-open');
     navToggle.setAttribute('aria-expanded', String(isOpen));
   });
 
   document.querySelectorAll('.main-nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      header.classList.remove('nav-open');
-      navToggle.setAttribute('aria-expanded', 'false');
-    });
+    link.addEventListener('click', closeNav);
+  });
+
+  // Close on Escape (keyboard users) and on click outside the menu
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && header.classList.contains('nav-open')) {
+      closeNav();
+      navToggle.focus();
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (header.classList.contains('nav-open') && !header.contains(e.target)) {
+      closeNav();
+    }
   });
 
   /* ---------- 3. Header scroll state + back-to-top ---------- */
@@ -187,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ctaForm.reset();
     } catch (err) {
       formNote.classList.add('is-error');
-      formNote.textContent = 'Something went wrong sending that — please email aidenjasonkelland@gmail.com or WhatsApp us instead.';
+      formNote.textContent = 'Something went wrong sending that — please email bluepeakdigitalweb@gmail.com or WhatsApp us instead.';
     } finally {
       formSubmitBtn.disabled = false;
       formSubmitBtn.textContent = submitBtnDefaultText;

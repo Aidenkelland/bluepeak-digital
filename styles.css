@@ -764,6 +764,7 @@ html[data-theme="light"] .icon-sun{ opacity: 1; transform: rotate(0deg); }
 .pricing-price-block--monthly .pricing-price-label{ color: var(--primary-2); }
 .pricing-amount--monthly{ font-size: 1.5rem; }
 .pricing-amount--monthly span{ font-size: 0.92rem; font-weight: 500; color: var(--text-muted); font-family: var(--font-body); }
+.pricing-amount-alt{ font-size: 0.85rem; font-weight: 500; color: var(--text-muted); margin: 4px 0 0; font-family: var(--font-body); }
 
 .pricing-features-lead{
   font-family: var(--font-mono);
@@ -840,6 +841,7 @@ html[data-theme="light"] .icon-sun{ opacity: 1; transform: rotate(0deg); }
 }
 .comparison-table .cell-yes{ color: var(--primary-2); font-weight: 700; }
 .comparison-table .cell-no{ color: var(--text-muted); opacity: 0.5; }
+.comparison-table .cell-alt{ display: block; font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
 
 .testimonial-card{
   background: var(--surface);
@@ -1008,7 +1010,6 @@ html[data-theme="light"] .cta-section{ background-image: linear-gradient(160deg,
 }
 .contact-method svg{ color: var(--primary-2); flex-shrink: 0; }
 a.contact-method:hover{ color: #fff; }
-.contact-method--static{ color: #9AAAC4; }
 
 /* ---------- Footer ---------- */
 .site-footer{ background: var(--surface); border-top: 1px solid var(--border); padding: 70px 0 0; }

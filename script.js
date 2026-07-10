@@ -35,11 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeNav = () => {
     header.classList.remove('nav-open');
     navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Open menu');
   };
 
   navToggle.addEventListener('click', () => {
     const isOpen = header.classList.toggle('nav-open');
     navToggle.setAttribute('aria-expanded', String(isOpen));
+    navToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
   });
 
   document.querySelectorAll('.main-nav a').forEach(link => {
@@ -90,11 +92,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- 5. Animated stat counters ---------- */
   const counters = document.querySelectorAll('.stat-number');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const animateCounter = (el) => {
     const target = parseFloat(el.dataset.count);
     const suffix = el.dataset.suffix || '';
     const decimals = parseInt(el.dataset.decimal || '0', 10);
+
+    if (prefersReducedMotion) {
+      el.textContent = target.toFixed(decimals) + suffix;
+      return;
+    }
+
     const duration = 1400;
     const start = performance.now();
 
@@ -125,8 +134,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   filterTabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      filterTabs.forEach(t => t.classList.remove('is-active'));
+      filterTabs.forEach(t => {
+        t.classList.remove('is-active');
+        t.setAttribute('aria-pressed', 'false');
+      });
       tab.classList.add('is-active');
+      tab.setAttribute('aria-pressed', 'true');
 
       const filter = tab.dataset.filter;
       portfolioCards.forEach(card => {
@@ -157,7 +170,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ---------- 8. Contact form (Formspree) ---------- */
+  // Guarded: pages like privacy.html share this script but don't have the form.
   const ctaForm = document.getElementById('ctaForm');
+
+  if (ctaForm) {
   const formNote = document.getElementById('formNote');
   const formSubmitBtn = ctaForm.querySelector('button[type="submit"]');
   const submitBtnDefaultText = formSubmitBtn.textContent;
@@ -209,6 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
       formSubmitBtn.textContent = submitBtnDefaultText;
     }
   });
+  }
 
   /* Footer year */
   document.getElementById('year').textContent = new Date().getFullYear();

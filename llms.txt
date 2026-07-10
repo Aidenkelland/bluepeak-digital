@@ -1,8 +1,8 @@
 # BluePeak Digital
 
-> Premium web design & development agency based in South Africa, building fast, beautiful, high-converting websites for businesses worldwide.
+> Premium web design & development agency building fast, beautiful, high-converting websites for ambitious businesses worldwide.
 
-BluePeak Digital designs and builds custom websites end to end — brand and identity, hand-built web development, e-commerce, technical SEO, motion/interaction design, and ongoing post-launch care. The team is based in South Africa and works with clients both locally and internationally.
+BluePeak Digital designs and builds custom websites end to end — brand and identity, hand-built web development, e-commerce, technical SEO, motion/interaction design, and ongoing post-launch care. Founder-led, working with clients internationally.
 
 ## Services
 - Brand & Identity — logo systems, type, color, and voice
@@ -12,10 +12,10 @@ BluePeak Digital designs and builds custom websites end to end — brand and ide
 - Motion & Interaction — considered animation and micro-interactions
 - Ongoing Care — monitoring, updates, and iteration after launch
 
-## Pricing (starting points, priced in South African Rand — international quotes in USD/GBP/EUR available on request)
-- Foundation Build — from R9,500 one-time + R1,450/month Digital Care Partnership — startups, landing pages & small businesses
-- Business Growth Engine — from R18,500 one-time + R2,450/month Digital Growth Partnership — growing businesses, corporate & lead-gen sites (most popular)
-- Enterprise — from R35,000 one-time + from R4,950/month Enterprise Partnership — e-commerce, large businesses & custom platforms
+## Pricing (starting points, priced in USD/GBP)
+- Foundation Build — from $1,500 USD / £1,200 GBP one-time + $99 USD / £79 GBP per month Digital Care Partnership — startups, landing pages & small businesses
+- Business Growth Engine — from $3,000 USD / £2,400 GBP one-time + $199 USD / £159 GBP per month Digital Growth Partnership — growing businesses, corporate & lead-gen sites (most popular)
+- Enterprise — from $5,000 USD / £4,000 GBP one-time + from $399 USD / £319 GBP per month Enterprise Partnership — e-commerce, large businesses & custom platforms
 
 ## Contact
 - Website: https://bluepeakdigitalhq.com

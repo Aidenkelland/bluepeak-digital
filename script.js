@@ -64,11 +64,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- 3. Header scroll state + back-to-top ---------- */
   const backToTop = document.getElementById('backToTop');
+  const whatsappFloat = document.getElementById('whatsappFloat');
 
   const onScroll = () => {
     const scrolled = window.scrollY > 40;
     header.classList.toggle('is-scrolled', scrolled);
     backToTop.classList.toggle('is-visible', window.scrollY > 600);
+    // Gated on scroll so it doesn't collide with the hero's primary CTA button on short/mobile viewports
+    whatsappFloat.classList.toggle('is-visible', window.scrollY > 150);
   };
   document.addEventListener('scroll', onScroll, { passive: true });
   onScroll();

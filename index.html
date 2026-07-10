@@ -156,6 +156,7 @@
   <section class="hero" id="hero">
     <div class="container hero-inner">
       <div class="hero-copy">
+        <p class="status-pill reveal"><span class="status-dot" aria-hidden="true"></span>All Systems Operational • 100% Core Web Vitals Pass Rate</p>
         <p class="locale-badge reveal">Global Web Infrastructure — Building High-Performance Digital Assets Worldwide</p>
         <p class="eyebrow reveal">Premium web design &amp; development agency</p>
         <h1 class="hero-title reveal">
@@ -242,6 +243,19 @@
     </div>
   </section>
 
+  <!-- ============ BUILD STANDARDS TICKER ============ -->
+  <section class="stack-section" aria-label="How we build">
+    <div class="container">
+      <h2 class="stack-heading reveal">Engineered to enterprise-grade standards</h2>
+    </div>
+    <div class="marquee stack-marquee">
+      <div class="marquee-track" aria-hidden="true">
+        <span>Hand-Coded HTML5</span><span>Semantic CSS3</span><span>Vanilla JavaScript</span><span>Core Web Vitals Optimized</span><span>WCAG 2.1 Accessible</span><span>100/100 Lighthouse Target</span><span>SSL/TLS Encrypted</span><span>Formspree Secure Forms</span>
+        <span>Hand-Coded HTML5</span><span>Semantic CSS3</span><span>Vanilla JavaScript</span><span>Core Web Vitals Optimized</span><span>WCAG 2.1 Accessible</span><span>100/100 Lighthouse Target</span><span>SSL/TLS Encrypted</span><span>Formspree Secure Forms</span>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ LOGO MARQUEE ============ -->
   <section class="marquee-section" aria-label="The kind of teams we build for">
     <p class="marquee-caption">The kind of teams and industries we love building for</p>
@@ -258,6 +272,39 @@
   <section class="statement-band">
     <div class="container">
       <p class="statement-text reveal">We build premium websites for ambitious businesses worldwide — that actually generate customers, not just look good.</p>
+    </div>
+  </section>
+
+  <!-- ============ ENGINEERING FRAMEWORK ============ -->
+  <section class="section framework-section" id="engineering">
+    <div class="container">
+      <div class="section-head reveal" style="margin-left:auto;margin-right:auto;text-align:center;">
+        <p class="eyebrow reveal" style="justify-content:center;">Under the hood</p>
+        <h2 class="section-title reveal">The BluePeak Engineering Framework</h2>
+        <p class="section-sub reveal" style="margin-left:auto;margin-right:auto;">Moving beyond basic templates to build hyper-optimized digital infrastructure.</p>
+      </div>
+
+      <div class="grid grid-3 framework-grid">
+        <article class="framework-card reveal">
+          <span class="framework-metric text-gradient">&lt;100ms</span>
+          <h3>Sub-100ms Response Times</h3>
+          <p>Lean static delivery, aggressive asset optimization, and clean, minimal DOM footprints on every page.</p>
+        </article>
+
+        <article class="framework-card reveal">
+          <span class="framework-metric text-gradient">100/100</span>
+          <h3>Perfect Lighthouse Scores</h3>
+          <p>We target 100/100 on Google Lighthouse by cutting the bloated third-party scripts that quietly drive up mobile bounce rates.</p>
+        </article>
+
+        <article class="framework-card reveal">
+          <span class="framework-metric text-gradient">1:1</span>
+          <h3>Thumb-Zone Mobile UI</h3>
+          <p>Frictionless, custom-built navigation engineered around where a thumb actually rests on a phone, not a desktop afterthought.</p>
+        </article>
+      </div>
+
+      <p class="section-cta reveal">See it in practice <a href="#work">Browse our work <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
     </div>
   </section>
 
@@ -1085,6 +1132,11 @@
         <span class="cta-quick-or">or fill in your details below</span>
       </div>
 
+      <div class="guarantee-card reveal">
+        <span class="guarantee-badge">Performance guarantee</span>
+        <p class="guarantee-text"><strong>The BluePeak Performance Guarantee:</strong> we do not build slow websites. If your new custom deployment doesn't score 90+ for mobile performance on Google Lighthouse within 30 days of launch, our team will keep optimizing it at no additional cost until it does — provided the shortfall isn't caused by factors outside our control, like third-party scripts, client-supplied media, or hosting we don't manage. No excuses, just results.</p>
+      </div>
+
       <form class="cta-form reveal" id="ctaForm" action="https://formspree.io/f/mrewvwdj" method="POST">
         <div class="form-row">
           <label class="visually-hidden" for="ctaName">Name</label>
@@ -1095,7 +1147,16 @@
         <div class="form-row">
           <label class="visually-hidden" for="ctaCompany">Company</label>
           <input type="text" id="ctaCompany" name="company" placeholder="Company name" required>
-          <button type="submit" class="btn btn-primary">Get my free quote</button>
+          <label class="visually-hidden" for="ctaBudget">Project investment runway</label>
+          <select id="ctaBudget" name="budget" required>
+            <option value="" disabled selected>Select project tier...</option>
+            <option value="1500-3000">$1,500 – $3,000 USD</option>
+            <option value="3000-5000">$3,000 – $5,000 USD</option>
+            <option value="5000+">$5,000+ USD</option>
+          </select>
+        </div>
+        <div class="form-row form-row--submit">
+          <button type="submit" class="btn btn-primary btn-block">Get my free quote</button>
         </div>
         <!-- Honeypot: hidden from real visitors, bots tend to fill every field -->
         <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -1164,6 +1225,8 @@
       <div class="footer-col">
         <h4>Legal</h4>
         <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="cookie-settings.html">Cookie Settings</a>
       </div>
     </nav>
   </div>
@@ -1174,7 +1237,7 @@
 </footer>
 
 <!-- WhatsApp Business number: +27 66 566 7254 -->
-<a class="whatsapp-float" href="https://wa.me/27665667254" target="_blank" rel="noopener" aria-label="Chat with BluePeak Digital on WhatsApp">
+<a class="whatsapp-float" id="whatsappFloat" href="https://wa.me/27665667254" target="_blank" rel="noopener" aria-label="Chat with BluePeak Digital on WhatsApp">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.02 2C6.5 2 2.02 6.48 2.02 12c0 1.9.53 3.68 1.44 5.2L2 22l4.94-1.4A9.96 9.96 0 0 0 12.02 22C17.53 22 22 17.52 22 12S17.53 2 12.02 2Zm0 18.2c-1.7 0-3.3-.47-4.66-1.3l-.33-.2-3.02.86.84-2.95-.22-.34a8.18 8.18 0 0 1-1.28-4.4c0-4.5 3.68-8.18 8.19-8.18 4.5 0 8.18 3.68 8.18 8.18 0 4.51-3.68 8.19-8.18 8.19Zm4.5-6.1c-.24-.12-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.12-.16.24-.63.8-.78.96-.14.16-.28.18-.53.06-.24-.12-1.03-.38-1.96-1.2-.72-.65-1.22-1.44-1.36-1.68-.14-.24-.02-.37.11-.5.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.45-.59 1.65-1.17.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28Z"/></svg>
 </a>
 

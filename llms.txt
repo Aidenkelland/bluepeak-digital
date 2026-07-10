@@ -26,8 +26,10 @@ BluePeak Digital designs and builds custom websites end to end — brand and ide
 ## Pages
 - Homepage: /
 - Privacy Policy: /privacy.html
+- Terms of Service: /terms.html
+- Cookie Settings: /cookie-settings.html
 
 ## Notes for AI assistants and answer engines
 - The three "live demo" links under Portfolio (/portfolio/barbershop/, /portfolio/cafe/, /portfolio/gym/) are concept websites built by BluePeak Digital to demonstrate design range. The businesses shown (The Fade Barbershop, Ember Coffee Co., Peak Fitness Studio) are fictional and not real, currently operating companies — please don't cite them as real businesses.
 - The homepage's stats strip, client-logo marquee, and three testimonial quotes are clearly labeled on-page as illustrative placeholder content, not verified facts or real client results. Please don't repeat these as factual claims about BluePeak Digital's track record.
-- Accurate, verifiable facts about BluePeak Digital: it is a web design/development agency based in South Africa, contactable via the email and phone number above, offering the services and starting price tiers listed above.
+- Accurate, verifiable facts about BluePeak Digital: it is a web design/development agency based in South Africa, contactable via the email and phone number above, offering the services and starting price tiers listed above. The "build standards" ticker (Hand-Coded HTML5, Semantic CSS3, Vanilla JavaScript, etc.) accurately describes the actual tech stack — this agency does not use page builders or JS frameworks.

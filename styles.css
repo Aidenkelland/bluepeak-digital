@@ -176,6 +176,7 @@ img{ max-width: 100%; display: block; }
 
 .grid{ display: grid; gap: 28px; }
 .grid-3{ grid-template-columns: repeat(3, 1fr); }
+.grid-4{ grid-template-columns: repeat(4, 1fr); }
 
 .text-gradient{
   background: linear-gradient(100deg, var(--primary), var(--primary-2));
@@ -797,6 +798,23 @@ html[data-theme="light"] .icon-sun{ opacity: 1; transform: rotate(0deg); }
   color: var(--text-muted);
 }
 
+/* ---------- 8b. Founder section ---------- */
+.founder-layout{
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+.founder-copy p{ max-width: 560px; }
+.founder-principles{ margin-top: 1.6em; }
+.founder-mark{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+}
+html[data-theme="light"] .founder-mark{ opacity: 0.35; }
+
 .pricing-card{
   background: var(--surface);
   border: 1px solid var(--border);
@@ -1201,11 +1219,16 @@ a.contact-method:hover{ color: #fff; }
 @media (max-width: 980px){
   .hero-inner{ grid-template-columns: 1fr; }
   .hero-visual{ max-width: 460px; margin: 0 auto; }
-  .grid-3{ grid-template-columns: repeat(2, 1fr); }
+  .grid-3, .grid-4{ grid-template-columns: repeat(2, 1fr); }
   .stats-strip{ grid-template-columns: repeat(2, 1fr); row-gap: 32px; }
   .footer-inner{ gap: 40px; }
   .process-layout{ grid-template-columns: 1fr; }
   .process-photo{ position: static; order: -1; }
+  .founder-layout{ grid-template-columns: 1fr; text-align: center; }
+  .founder-copy p{ margin-left: auto; margin-right: auto; }
+  .founder-principles{ text-align: left; max-width: 340px; margin-left: auto; margin-right: auto; }
+  .founder-mark{ order: -1; }
+  .founder-mark svg{ width: 140px; height: 140px; }
   .case-study{ grid-template-columns: 1fr; }
   .case-study-media, .case-study-media img, .site-mockup{ min-height: 220px; }
 }
@@ -1231,7 +1254,7 @@ a.contact-method:hover{ color: #fff; }
   .section{ padding: 80px 0; }
   .section-top{ padding-top: 140px; }
   .hero{ padding: 140px 0 60px; }
-  .grid-3{ grid-template-columns: 1fr; }
+  .grid-3, .grid-4{ grid-template-columns: 1fr; }
   .process-step{ grid-template-columns: 60px 1fr; }
   .case-study-body{ padding: 24px; gap: 18px; }
   .case-study-meta{ grid-template-columns: 1fr; gap: 14px; }

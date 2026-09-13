@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ctaForm.reset();
     } catch (err) {
       formNote.classList.add('is-error');
-      formNote.textContent = 'Something went wrong sending that — please email bluepeakdigitalweb@gmail.com or WhatsApp us instead.';
+      formNote.textContent = 'Something went wrong sending that — please email hello@bluepeakdigitalhq.com or WhatsApp us instead.';
     } finally {
       formSubmitBtn.disabled = false;
       formSubmitBtn.textContent = submitBtnDefaultText;

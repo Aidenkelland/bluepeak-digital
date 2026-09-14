@@ -278,7 +278,7 @@ html[data-theme="light"] .icon-sun{ opacity: 1; transform: rotate(0deg); }
   border-radius: 999px;
   border: 1px solid transparent;
   transition: transform .2s var(--ease), box-shadow .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease);
-  white-space: nowrap;
+  text-align: center;
 }
 .btn-sm{ padding: 9px 18px; font-size: 0.86rem; }
 .btn-lg{ padding: 16px 30px; font-size: 1rem; }

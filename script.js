@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Honeypot tripped — a real visitor never fills this field. Pretend
     // success without actually submitting, so bots don't learn it failed.
     if (honeypot) {
-      formNote.textContent = `Thanks, ${name.split(' ')[0]} — we'll be in touch within 24 hours.`;
+      formNote.textContent = `Thanks, ${name.split(' ')[0]} — we'll be in touch within 1 business day.`;
       ctaForm.reset();
       return;
     }
@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!response.ok) throw new Error('Form submission failed');
 
       formNote.classList.remove('is-error');
-      formNote.textContent = `Thanks, ${name.split(' ')[0]} — we'll be in touch within 24 hours.`;
+      formNote.textContent = `Thanks, ${name.split(' ')[0]} — we'll be in touch within 1 business day.`;
       ctaForm.reset();
     } catch (err) {
       formNote.classList.add('is-error');

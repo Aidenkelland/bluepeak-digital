@@ -1,6 +1,6 @@
 # BluePeak Digital — Client Readiness
 
-Status as of 2026-09-16. This supersedes the original Phase 4 snapshot below — a lot has shipped since then, including all three items that were originally blocking outreach. Kept the original structure so this stays a useful log, not a rewrite that erases the history.
+Status as of 2026-09-18. This supersedes the original Phase 4 snapshot below — a lot has shipped since then, including all three items that were originally blocking outreach. Kept the original structure so this stays a useful log, not a rewrite that erases the history.
 
 ---
 
@@ -34,6 +34,17 @@ The Phase 4 version of this doc listed three tasks as blocking before any outrea
 ---
 
 ## 3. Session changelog (most recent first)
+
+**2026-09-18 — final QA/conversion/credibility pass:**
+- **CTA consolidated to one family across the whole site.** Nav button, hero, portfolio, process, "Why choose BluePeak," and the Enterprise pricing card all now read "Book a Free Discovery Call" (or lowercase "Book a free discovery call" for inline sentence-style links). The nav short label changed from "Free Call" to "Free Discovery Call." The actual form submit button stays "Request My Free Discovery Call" since that's literally what it does (a request via form, not an instant calendar booking) — legal pages already referenced this correctly, no change needed there.
+- **Removed the standalone "Claim your free website audit" CTA.** There's no distinct audit deliverable separate from the discovery call in the current process, so this was promising something that wasn't actually a separate offer — folded into the standard discovery-call CTA.
+- **Performance claims made internally consistent and defensible.** The stack ticker and Engineering Framework section previously claimed "100/100 Lighthouse Target" and "<100ms Response Targets" while the actual Performance Commitment (footer of the final CTA section, and Terms section 5) only guarantees 90+ mobile Lighthouse. Changed the ticker and framework cards to lead with "90+ Mobile Lighthouse Standard" (100/100 now framed as "pursued wherever production conditions allow," not promised) and dropped the unverified sub-100ms response-time claim entirely — replaced with an honest "Static-First Delivery" framing (no frameworks/page builders, lean DOM) that doesn't need a number to back it up.
+- **Proof section rewritten to stop being a dead end.** It previously routed "See what's included → View pricing," which skipped past the actual proof. Now it explicitly invites visitors to self-verify (view source, test on their phone, run their own Lighthouse check on the demo builds) and links to `#work` instead of `#pricing`. No fabricated stats added — the honesty about not having a public client portfolio yet was already correct and is preserved.
+- **Portfolio "Expected outcome" → "Design objective"** across all six case-study cards — these are goals BluePeak designed toward, not measured client outcomes, and the old label could read as a claimed result.
+- **Hero status-pill and locale-badge reworded.** "All Systems Operational • Core Web Vitals Optimized" (sounds like a SaaS uptime monitor that isn't actually running) → "Hand-Coded • Mobile-First • Conversion-Focused." "Global Web Infrastructure — Building High-Performance Digital Assets Worldwide" (jargon-heavy, vague) → "Based in South Africa — building for clients worldwide" (accurate, plain).
+- **"Hyper-optimized digital infrastructure" replaced** in the Engineering Framework intro with "websites engineered for speed, not just styled to look fast" — same claim, buyer-facing language instead of agency-to-agency jargon.
+- Verified every `#anchor` link on the homepage resolves to a real section id — no dead internal links. No dead CSS/JS or debug artifacts found (`console.log`, `TODO`/`FIXME`) in any HTML/CSS/JS file.
+- **Not changed, and why:** pricing/service-promise line items (daily backups, security monitoring, etc.) — verifying these have a real operational process behind them is a business-knowledge question only the founder can answer, not something derivable from the code. Portfolio composition (no new construction/trade demo added) — the advisor explicitly said not to invent one under outreach time pressure; the existing Current & Co. Electrical concept preview stays as the trade-market placeholder. Apple touch icon and a strict 1200×630 OG image remain open nice-to-haves (unchanged from the prior status). No live multi-viewport browser testing or repeated real Lighthouse runs were performed this session — this was a static code/copy audit, not a browser QA pass; see the note below if that's wanted next.
 
 **2026-09-16 — credibility & consistency patch:**
 - Portfolio intro/CTAs reworded so the three interactive demo builds (barbershop, cafe, gym) aren't described as "live builds" when each linked page self-labels as a concept demo — now "three interactive demo builds you can explore in full" / "Explore demo" CTAs.

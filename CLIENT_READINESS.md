@@ -35,6 +35,15 @@ The Phase 4 version of this doc listed three tasks as blocking before any outrea
 
 ## 3. Session changelog (most recent first)
 
+**2026-10-30 — AI Automation added as a second core service:**
+- Homepage now presents Premium Web Development and AI Automation as two equal core services, positioned primarily toward established contractors, roofing companies, remodeling businesses and other service businesses. "Who we work with" cards updated to match.
+- New `#ai-automation` section: five capabilities, human approval, BluePeak LeadFlow as a private-demo prototype (HTML/CSS recreation with fictional data, plus the required disclosure), AI Receptionist as planned and unavailable, and Custom AI Automation as consultation-based.
+- The `#services` anchor now points at the two-service overview; the six web service cards moved to `#web-development`.
+- Contact form gained a required service field (Website, AI Automation, Both, Not Sure), an optional message and a "Not sure yet" budget option. Formspree endpoint unchanged. AI buttons preselect the service.
+- Three FAQs added, in the page and in JSON-LD. Privacy Policy updated to list the real form fields. Website packages, prices, comparison table and portfolio unchanged.
+- Rendered-pixel contrast review fixed issues axe can't see over gradients and images: primary button gradient end darkened (white text was about 1.8:1 in dark theme), WhatsApp button text changed to dark green, light-theme CTA accent, form placeholders and helper text.
+- **Before the first paid AI project:** `terms.html` only covers website projects and Care Partnerships, so it needs AI automation terms. Don't send real customer data through LeadFlow; it remains a local prototype.
+
 **2026-09-18 — final QA/conversion/credibility pass:**
 - **CTA consolidated to one family across the whole site.** Nav button, hero, portfolio, process, "Why choose BluePeak," and the Enterprise pricing card all now read "Book a Free Discovery Call" (or lowercase "Book a free discovery call" for inline sentence-style links). The nav short label changed from "Free Call" to "Free Discovery Call." The actual form submit button stays "Request My Free Discovery Call" since that's literally what it does (a request via form, not an instant calendar booking) — legal pages already referenced this correctly, no change needed there.
 - **Removed the standalone "Claim your free website audit" CTA.** There's no distinct audit deliverable separate from the discovery call in the current process, so this was promising something that wasn't actually a separate offer — folded into the standard discovery-call CTA.

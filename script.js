@@ -172,6 +172,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Keyboard users need focus on the comparison table to scroll it sideways on phones
+  document.querySelectorAll('.table-scroll').forEach(table => {
+    table.setAttribute('tabindex', '0');
+    table.setAttribute('role', 'region');
+    table.setAttribute('aria-label', 'Plan comparison table');
+  });
+
   /* ---------- 8. Contact form (Formspree) ---------- */
   // Guarded: pages like privacy.html share this script but don't have the form.
   const ctaForm = document.getElementById('ctaForm');
@@ -180,6 +187,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const formNote = document.getElementById('formNote');
   const formSubmitBtn = ctaForm.querySelector('button[type="submit"]');
   const submitBtnDefaultText = formSubmitBtn.textContent;
+
+  // AI Automation buttons preselect the service (and optional message) before jumping to the form
+  const ctaService = document.getElementById('ctaService');
+  const ctaMessage = document.getElementById('ctaMessage');
+
+  document.querySelectorAll('[data-service]').forEach(link => {
+    link.addEventListener('click', () => {
+      ctaService.value = link.dataset.service;
+      if (link.dataset.message && !ctaMessage.value.trim()) {
+        ctaMessage.value = link.dataset.message;
+      }
+    });
+  });
 
   ctaForm.addEventListener('submit', async (e) => {
     e.preventDefault();
